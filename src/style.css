@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Jost:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Luminar Color Palette */
+  --color-luminar-bg: #161616;
+  --color-luminar-card: #333333;
+  --color-luminar-accent: #F6BE25;
+  --color-luminar-secondary: #FADC89;
+  --color-luminar-text: #FEF9EC;
+
+  /* Typography */
+  --font-cinzel: "Cinzel", serif;
+  --font-jost: "Jost", sans-serif;
+
+  /* Elevation & Glow */
+  --border-elevation: 1px solid rgba(254, 249, 236, 0.1);
+  --shadow-glow: 0 0 40px rgba(51, 51, 51, 0.5);
+
+  /* Spacing - Following 8px grid multiples in Tailwind scale
+     Note: Tailwind v4 uses --spacing for the base unit (default 4px).
+     To keep the requested scale (2=8px, 4=16px), we keep default spacing.
+  */
+}
+
+@layer base {
+  body {
+    @apply bg-luminar-bg text-luminar-text font-jost antialiased selection:bg-luminar-accent selection:text-luminar-bg;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-cinzel;
+    letter-spacing: 0;
+  }
+}
+
+@layer components {
+  .elevation-border {
+    border: var(--border-elevation);
+  }
+
+  .luminar-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
