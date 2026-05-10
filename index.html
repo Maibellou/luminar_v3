@@ -4,33 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luminar | Cerramientos de Alta Gama</title>
+  <title>Luminar | Cerramientos de Cristal</title>
   <link rel="stylesheet" href="/src/style.css">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body
-  class="bg-luminar-bg text-luminar-text font-jost selection:bg-luminar-accent selection:text-luminar-bg overflow-x-clip">
+  class="bg-luminar-bg text-luminar-text font-secondary selection:bg-luminar-accent selection:text-luminar-bg overflow-x-clip">
 
   <!-- Navbar -->
   <nav id="main-nav"
-    class="fixed top-0 left-0 right-0 w-full z-50 py-6 px-8 transition-all duration-300 bg-transparent border-b border-transparent">
+    class="fixed top-0 left-0 right-0 w-full z-[110] py-6 px-8 transition-all duration-300 bg-transparent border-b border-transparent">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <a href="#" class="font-cinzel text-2xl tracking-widest text-luminar-text">LUMINAR</a>
+      <a href="#" class="font-primary text-2xl tracking-widest text-luminar-text">LUMINAR</a>
       <div class="hidden md:flex gap-16">
         <a href="#servicios-a"
-          class="text-sm uppercase tracking-widest text-luminar-text hover:text-luminar-accent transition-colors">Servicios</a>
+          class="nav-link text-sm uppercase tracking-widest text-luminar-text hover:text-luminar-accent transition-all duration-300 relative py-1">Servicios</a>
         <a href="#nosotros"
-          class="text-sm uppercase tracking-widest text-luminar-text hover:text-luminar-accent transition-colors">Nosotros</a>
+          class="nav-link text-sm uppercase tracking-widest text-luminar-text hover:text-luminar-accent transition-all duration-300 relative py-1">Nosotros</a>
         <a href="#proyectos"
-          class="text-sm uppercase tracking-widest text-luminar-text hover:text-luminar-accent transition-colors">Proyectos</a>
+          class="nav-link text-sm uppercase tracking-widest text-luminar-text hover:text-luminar-accent transition-all duration-300 relative py-1">Proyectos</a>
         <a href="#contacto"
-          class="text-sm uppercase tracking-widest text-luminar-text hover:text-luminar-accent transition-colors">Contacto</a>
+          class="nav-link text-sm uppercase tracking-widest text-luminar-accent hover:text-luminar-text transition-all duration-300 relative py-1">Contacto</a>
       </div>
-      <!-- Mobile Menu Button (hamburger) -->
-      <button id="menu-open-btn" class="md:hidden flex flex-col gap-[6px] items-end p-2 z-50" aria-label="Abrir menú">
-        <span class="w-6 h-[1.5px] bg-luminar-text block"></span>
-        <span class="w-8 h-[1.5px] bg-luminar-text block"></span>
+      <!-- Mobile Menu Toggle Button -->
+      <button id="menu-toggle-btn" class="md:hidden flex flex-col gap-[6px] items-center justify-center p-2 z-[110] relative w-10 h-10" aria-label="Alternar menú">
+        <span class="w-8 h-[1.5px] bg-luminar-text block transition-all duration-300 origin-center pointer-events-none"></span>
+        <span class="w-8 h-[1.5px] bg-luminar-text block transition-all duration-300 origin-center pointer-events-none"></span>
       </button>
     </div>
   </nav>
@@ -39,22 +39,16 @@
   <div id="mobile-menu"
     class="fixed inset-0 z-[100] bg-luminar-bg flex flex-col items-center justify-center pointer-events-none opacity-0"
     aria-hidden="true">
-    <!-- Close Button (same top-right position as hamburger) -->
-    <button id="menu-close-btn" class="absolute top-0 right-0 py-6 px-8 p-2 flex flex-col gap-[6px] items-end"
-      aria-label="Cerrar menú">
-      <span class="w-7 h-[1.5px] bg-luminar-text block rotate-45 translate-y-[5px]"></span>
-      <span class="w-7 h-[1.5px] bg-luminar-text block -rotate-45 -translate-y-[3px]"></span>
-    </button>
     <!-- Nav Links -->
     <nav class="flex flex-col items-center gap-8">
       <a href="#servicios-a"
-        class="mobile-nav-link font-cinzel text-3xl tracking-widest text-luminar-text hover:text-luminar-accent transition-colors">Servicios</a>
+        class="mobile-nav-link nav-link font-primary text-3xl tracking-widest text-luminar-text hover:text-luminar-accent transition-colors duration-300 relative py-2">Servicios</a>
       <a href="#nosotros"
-        class="mobile-nav-link font-cinzel text-3xl tracking-widest text-luminar-text hover:text-luminar-accent transition-colors">Nosotros</a>
+        class="mobile-nav-link nav-link font-primary text-3xl tracking-widest text-luminar-text hover:text-luminar-accent transition-colors duration-300 relative py-2">Nosotros</a>
       <a href="#proyectos"
-        class="mobile-nav-link font-cinzel text-3xl tracking-widest text-luminar-text hover:text-luminar-accent transition-colors">Proyectos</a>
+        class="mobile-nav-link nav-link font-primary text-3xl tracking-widest text-luminar-text hover:text-luminar-accent transition-colors duration-300 relative py-2">Proyectos</a>
       <a href="#contacto"
-        class="mobile-nav-link font-cinzel text-3xl tracking-widest text-luminar-text hover:text-luminar-accent transition-colors">Contacto</a>
+        class="mobile-nav-link nav-link font-primary text-3xl tracking-widest text-luminar-accent hover:text-luminar-text transition-colors duration-300 relative py-2">Contacto</a>
     </nav>
     <!-- Decorative accent line -->
     <div class="mt-16 w-16 h-[1px] bg-luminar-accent/50"></div>
@@ -72,9 +66,9 @@
 
     <div class="relative z-10 max-w-7xl mx-auto px-8 w-full flex flex-col items-center text-center">
       <p class="text-luminar-text tracking-[0.2em] text-sm uppercase mb-8 reveal-hero">Cerramientos de Alta Gama</p>
-      <h1 class="font-cinzel text-3xl md:text-4xl lg:text-5xl leading-tight text-luminar-accent mb-8 reveal-hero">
-        CORTINAS DE CRISTAL <br>
-        <span class="text-luminar-text">PARA ESPACIOS ÚNICOS</span>
+      <h1 class="font-primary text-4xl md:text-5xl lg:text-6xl leading-tight text-luminar-accent mb-8 reveal-hero">
+        Soluciones en Cristal <br>
+        <span class="text-luminar-text">para espacios únicos</span>
       </h1>
       <p class="max-w-2xl text-luminar-text text-lg md:text-xl leading-relaxed mb-16 reveal-hero">
         Donde el diseño minimalista encuentra la máxima eficiencia arquitectónica
@@ -84,16 +78,11 @@
   </header>
 
   <!-- Servicios A -->
-  <section id="servicios-a" class="py-32">
+  <section id="servicios-a" class="pt-12 lg:pt-20 pb-16 lg:pb-24">
     <div class="max-w-7xl mx-auto px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="relative h-[600px] w-full overflow-hidden elevation-border">
-          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1200"
-            alt="Sistemas de Cortinas de Cristal" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-luminar-bg/20"></div>
-        </div>
-        <div class="flex flex-col justify-center">
-          <h2 class="font-cinzel text-4xl md:text-5xl text-luminar-accent mb-8">Sistemas de Cortinas de Cristal</h2>
+        <div class="flex flex-col justify-center order-2 lg:order-1">
+          <h2 class="font-primary text-4xl md:text-5xl text-luminar-accent mb-8">Sistemas de Cortinas de Cristal</h2>
           <p class="text-luminar-text text-lg leading-relaxed mb-8">
             <strong class="font-medium">Visión sin límites.</strong> Nuestros sistemas de cortinas de cristal ofrecen
             una transparencia absoluta, eliminando los perfiles verticales tradicionales para crear una conexión
@@ -105,6 +94,11 @@
             temperatura ideal. Redefinimos la eficiencia energética con una estética minimalista y lujosa.
           </p>
         </div>
+        <div class="relative h-[350px] lg:h-[600px] w-full overflow-hidden elevation-border rounded-brand order-1 lg:order-2">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1200"
+            alt="Sistemas de Cortinas de Cristal" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-luminar-bg/20"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -112,14 +106,7 @@
   <!-- Servicios B — Sticky Scroll (GSAP Pinned) -->
   <section id="servicios-detalle" class="bg-luminar-bg">
 
-    <!-- Eyebrow header — outside the pin so it scrolls away naturally -->
-    <div class="max-w-7xl mx-auto px-8 pt-32 pb-16">
-      <p class="font-jost text-xs uppercase tracking-[0.25em] text-luminar-text/50 mb-4">Catálogo de Soluciones</p>
-      <div class="flex items-end justify-between gap-8">
-        <h2 class="font-jost font-light text-2xl text-luminar-text/80">Sistemas complementarios</h2>
-        <div class="w-24 h-[1px] bg-luminar-accent/40 mb-1 hidden md:block"></div>
-      </div>
-    </div>
+
 
     <!-- Pin wrapper: 300vh scroll space for 3 panels -->
     <div id="services-pin-wrapper" class="relative" style="height: 300vh;">
@@ -149,12 +136,6 @@
               <div class="absolute inset-0 bg-luminar-bg/15"></div>
             </div>
 
-            <!-- Index counter -->
-            <div class="absolute bottom-4 left-4 lg:bottom-8 lg:left-8 flex gap-3 z-10">
-              <span id="svc-current" class="font-jost text-xs text-luminar-accent tracking-widest">01</span>
-              <span class="font-jost text-xs text-luminar-text/30">/</span>
-              <span class="font-jost text-xs text-luminar-text/30 tracking-widest">03</span>
-            </div>
           </div>
 
           <!-- RIGHT: Stacked text panels (they slide + fade) -->
@@ -164,11 +145,11 @@
             <div class="relative flex flex-col justify-center h-full w-full">
 
               <div class="service-panel absolute inset-0 flex flex-col justify-center" data-index="0">
-                <span class="font-jost text-xs uppercase tracking-[0.25em] text-luminar-accent mb-8">01 — Apertura
-                  Total</span>
-                <h3 class="font-jost font-light text-4xl md:text-5xl text-luminar-accent mb-8 leading-tight">
+                <span class="font-secondary text-xs uppercase tracking-[0.25em] text-luminar-accent mb-8">01 — Sistemas
+                  Complementarios</span>
+                <h3 class="font-primary font-light text-4xl md:text-5xl text-luminar-accent mb-8 leading-tight">
                   Sistemas<br>Plegables</h3>
-                <p class="font-jost text-luminar-text text-base leading-relaxed max-w-md">
+                <p class="font-secondary text-luminar-text text-base leading-relaxed max-w-md">
                   Diseñados para la máxima flexibilidad espacial. Nuestras hojas plegables permiten una apertura total
                   del espacio, fusionando el interior con el exterior en segundos. Ideales para terrazas y restaurantes
                   que buscan versatilidad sin comprometer la estética.
@@ -177,11 +158,11 @@
 
               <div class="service-panel absolute inset-0 flex flex-col justify-center opacity-0 translate-y-8"
                 data-index="1">
-                <span class="font-jost text-xs uppercase tracking-[0.25em] text-luminar-accent mb-8">02 — Privacidad
-                  Visual</span>
-                <h3 class="font-jost font-light text-4xl md:text-5xl text-luminar-accent mb-8 leading-tight">
+                <span class="font-secondary text-xs uppercase tracking-[0.25em] text-luminar-accent mb-8">02 — Sistemas
+                  Complementarios</span>
+                <h3 class="font-primary font-light text-4xl md:text-5xl text-luminar-accent mb-8 leading-tight">
                   Divisorios<br>Interiores</h3>
-                <p class="font-jost text-luminar-text text-base leading-relaxed max-w-md">
+                <p class="font-secondary text-luminar-text text-base leading-relaxed max-w-md">
                   Elegancia y funcionalidad para la zonificación de ambientes. Los paneles divisorios crean áreas
                   independientes manteniendo la luminosidad y la amplitud visual. Perfectos para oficinas modernas y
                   residencias de concepto abierto.
@@ -190,11 +171,11 @@
 
               <div class="service-panel absolute inset-0 flex flex-col justify-center opacity-0 translate-y-8"
                 data-index="2">
-                <span class="font-jost text-xs uppercase tracking-[0.25em] text-luminar-accent mb-8">03 — Confort
-                  Premium</span>
-                <h3 class="font-jost font-light text-4xl md:text-5xl text-luminar-accent mb-8 leading-tight">
+                <span class="font-secondary text-xs uppercase tracking-[0.25em] text-luminar-accent mb-8">03 — Sistemas
+                  Complementarios</span>
+                <h3 class="font-primary font-light text-4xl md:text-5xl text-luminar-accent mb-8 leading-tight">
                   Cerramientos<br>de Piscina</h3>
-                <p class="font-jost text-luminar-text text-base leading-relaxed max-w-md">
+                <p class="font-secondary text-luminar-text text-base leading-relaxed max-w-md">
                   Prolonga la temporada de baño con estructuras de cristal de alta resistencia. Nuestros cerramientos
                   protegen contra las inclemencias del tiempo, mantienen la temperatura del agua y añaden un toque de
                   lujo indiscutible a su zona de ocio.
@@ -236,8 +217,8 @@
         </div>
 
         <div class="lg:col-span-7 lg:pl-16">
-          <h2 class="font-cinzel text-4xl md:text-5xl text-luminar-accent mb-8">Nosotros</h2>
-          <div class="space-y-6 text-luminar-text text-lg leading-relaxed font-jost">
+          <h2 class="font-primary text-4xl md:text-5xl text-luminar-accent mb-8">Nosotros</h2>
+          <div class="space-y-6 text-luminar-text text-lg leading-relaxed font-secondary">
             <p>
               Luminar surge como una respuesta contemporánea a la evolución de los espacios habitables. No pretendemos
               ser una firma con historia; somos una estructura nueva que canaliza la experiencia técnica consolidada de
@@ -255,64 +236,103 @@
   </section>
 
   <!-- Projects Bento -->
-  <section id="proyectos" class="py-32 bg-luminar-card/30">
+  <section id="proyectos" class="py-20 bg-luminar-card/30">
     <div class="max-w-7xl mx-auto px-8">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
         <div>
-          <h2 class="font-cinzel text-4xl md:text-5xl text-luminar-accent mb-6">Obras Destacadas</h2>
+          <h2 class="font-primary text-4xl md:text-5xl text-luminar-accent mb-2">Obras Destacadas</h2>
           <p class="text-luminar-text text-lg">Integración perfecta en residencias de lujo y espacios comerciales.</p>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[800px]">
+      <div class="grid grid-cols-1 md:grid-cols-6 md:grid-rows-3 gap-4 h-auto md:h-[550px]">
+        <!-- 1. Villa (Main but smaller) -->
         <div
-          class="md:col-span-2 md:row-span-2 relative group overflow-hidden elevation-border rounded-sm min-h-[400px] md:min-h-0">
+          class="md:col-span-3 md:row-span-2 relative group overflow-hidden elevation-border rounded-brand min-h-[300px] md:min-h-0">
           <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200"
             alt="Residencia Moderna"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-luminar-bg/90 via-luminar-bg/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-luminar-bg/90 via-luminar-bg/20 to-transparent opacity-80">
           </div>
           <div
-            class="absolute bottom-0 left-0 p-8 md:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-            <span class="text-luminar-text text-xs tracking-widest uppercase mb-4 block">Residencial</span>
-            <h3 class="font-cinzel text-3xl text-luminar-text">Villa Contemporánea</h3>
+            class="absolute bottom-0 left-0 p-6 md:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <span class="text-luminar-text text-[10px] tracking-widest uppercase mb-2 block">Residencial</span>
+            <h3 class="font-primary text-2xl text-luminar-text">Villa Contemporánea</h3>
           </div>
         </div>
 
+        <!-- 2. Ático -->
         <div
-          class="md:col-span-1 md:row-span-1 relative group overflow-hidden elevation-border rounded-sm min-h-[300px] md:min-h-0">
+          class="md:col-span-3 md:row-span-1 relative group overflow-hidden elevation-border rounded-brand min-h-[200px] md:min-h-0">
           <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800"
             alt="Detalle Balcón"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           <div class="absolute inset-0 bg-gradient-to-t from-luminar-bg/90 to-transparent opacity-80"></div>
-          <div class="absolute bottom-0 left-0 p-8">
-            <h3 class="font-cinzel text-xl text-luminar-text">Ático Panorámico</h3>
+          <div class="absolute bottom-0 left-0 p-6">
+            <h3 class="font-primary text-luminar-text uppercase tracking-widest text-xs">Ático Panorámico</h3>
           </div>
         </div>
 
         <div
-          class="md:col-span-1 md:row-span-1 relative group overflow-hidden elevation-border rounded-sm min-h-[300px] md:min-h-0">
-          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800"
+          class="md:col-span-1 md:row-span-1 relative group overflow-hidden elevation-border rounded-brand min-h-[200px] md:min-h-0">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=800"
+            alt="Detalle Cristal"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-luminar-accent/10 group-hover:bg-transparent transition-colors duration-500">
+          </div>
+        </div>
+
+        <!-- 4. Hotel -->
+        <div
+          class="md:col-span-2 md:row-span-1 relative group overflow-hidden elevation-border rounded-brand min-h-[200px] md:min-h-0">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
             alt="Arquitectura Comercial"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           <div class="absolute inset-0 bg-gradient-to-t from-luminar-bg/90 to-transparent opacity-80"></div>
-          <div class="absolute bottom-0 left-0 p-8">
-            <h3 class="font-cinzel text-xl text-luminar-text">Hotel Boutique</h3>
+          <div class="absolute bottom-0 left-0 p-6">
+            <h3 class="font-primary text-luminar-text uppercase tracking-widest text-xs">Hotel Boutique</h3>
           </div>
         </div>
 
+        <!-- 5. Torre -->
         <div
-          class="md:col-span-2 md:row-span-1 relative group overflow-hidden elevation-border rounded-sm min-h-[300px] md:min-h-0">
+          class="md:col-span-2 md:row-span-1 relative group overflow-hidden elevation-border rounded-brand min-h-[200px] md:min-h-0">
           <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
             alt="Edificio Corporativo"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           <div class="absolute inset-0 bg-gradient-to-t from-luminar-bg/90 to-transparent opacity-80"></div>
-          <div class="absolute bottom-0 left-0 p-8">
-            <h3 class="font-cinzel text-2xl text-luminar-text">Torre Corporativa</h3>
+          <div class="absolute bottom-0 left-0 p-6">
+            <h3 class="font-primary text-luminar-text uppercase tracking-widest text-xs">Torre Corporativa</h3>
           </div>
         </div>
+
+        <!-- 6. Terraza -->
+        <div
+          class="md:col-span-2 md:row-span-1 relative group overflow-hidden elevation-border rounded-brand min-h-[200px] md:min-h-0">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=800"
+            alt="Terraza de Lujo"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-luminar-bg/90 to-transparent opacity-80"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <h3 class="font-primary text-luminar-text uppercase tracking-widest text-xs">Terraza Sky</h3>
+          </div>
+        </div>
+
+        <!-- 7. Loft -->
+        <div
+          class="md:col-span-2 md:row-span-1 relative group overflow-hidden elevation-border rounded-brand min-h-[200px] md:min-h-0">
+          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800"
+            alt="Interior Minimalista"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-luminar-bg/90 to-transparent opacity-80"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <h3 class="font-primary text-luminar-text uppercase tracking-widest text-xs">Concepto Loft</h3>
+          </div>
+        </div>
+
+
       </div>
+    </div>
     </div>
   </section>
 
@@ -321,30 +341,30 @@
     <div class="max-w-7xl mx-auto px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
         <div>
-          <h2 class="font-cinzel text-4xl md:text-5xl text-luminar-accent mb-8">Inicie su Proyecto</h2>
+          <h2 class="font-primary text-4xl md:text-5xl text-luminar-accent mb-8">Inicie su Proyecto</h2>
           <p class="text-luminar-text text-lg leading-relaxed mb-16">
             Póngase en contacto con nuestro equipo de ingenieros y diseñadores para un asesoramiento personalizado y un
             presupuesto a medida adaptado a sus exigencias.
           </p>
           <div class="space-y-8">
             <div class="flex items-start gap-6">
-              <i class="ph-thin ph-map-pin text-3xl text-luminar-accent"></i>
+              <i class="ph-thin ph-globe-hemisphere-west text-3xl text-luminar-accent"></i>
               <div>
-                <h4 class="font-cinzel text-xl text-luminar-accent mb-2">Showroom Principal</h4>
-                <p class="text-luminar-text">Av. Arquitectura 1234, Distrito Financiero<br>Ciudad Metropolitana</p>
+                <h4 class="font-primary text-xl text-luminar-accent mb-2">Servicios en toda la Región</h4>
+                <p class="text-luminar-text">Desarrollamos proyectos en toda la Argentina.</p>
               </div>
             </div>
             <div class="flex items-start gap-6">
               <i class="ph-thin ph-envelope-simple text-3xl text-luminar-accent"></i>
               <div>
-                <h4 class="font-cinzel text-xl text-luminar-accent mb-2">Email Directo</h4>
+                <h4 class="font-primary text-xl text-luminar-accent mb-2">Email Directo</h4>
                 <p class="text-luminar-text">proyectos@luminar.com</p>
               </div>
             </div>
             <div class="flex items-start gap-6">
               <i class="ph-thin ph-phone text-3xl text-luminar-accent"></i>
               <div>
-                <h4 class="font-cinzel text-xl text-luminar-accent mb-2">Atención Telefónica</h4>
+                <h4 class="font-primary text-xl text-luminar-accent mb-2">Atención Telefónica</h4>
                 <p class="text-luminar-text">+34 900 123 456</p>
               </div>
             </div>
@@ -352,28 +372,30 @@
         </div>
 
         <div class="bg-luminar-card p-12 elevation-border">
-          <form class="flex flex-col gap-8">
+          <form class="flex flex-col gap-6">
             <div class="flex flex-col gap-2">
-              <label for="name" class="text-xs uppercase tracking-widest text-luminar-text">Nombre Completo</label>
+              <label for="name" class="text-[10px] uppercase tracking-[0.2em] text-luminar-text/50">Nombre
+                Completo</label>
               <input type="text" id="name"
-                class="bg-luminar-bg border-b border-luminar-text/20 focus:border-luminar-accent text-luminar-text p-4 outline-none transition-colors"
+                class="bg-luminar-bg border border-luminar-text/20 focus:border-luminar-accent text-luminar-text p-3 outline-none transition-colors rounded-brand"
                 placeholder="Su nombre completo">
             </div>
             <div class="flex flex-col gap-2">
-              <label for="email" class="text-xs uppercase tracking-widest text-luminar-text">Correo Electrónico</label>
+              <label for="email" class="text-[10px] uppercase tracking-[0.2em] text-luminar-text/50">Correo
+                Electrónico</label>
               <input type="email" id="email"
-                class="bg-luminar-bg border-b border-luminar-text/20 focus:border-luminar-accent text-luminar-text p-4 outline-none transition-colors"
+                class="bg-luminar-bg border border-luminar-text/20 focus:border-luminar-accent text-luminar-text p-3 outline-none transition-colors rounded-brand"
                 placeholder="su@email.com">
             </div>
             <div class="flex flex-col gap-2">
-              <label for="message" class="text-xs uppercase tracking-widest text-luminar-text">Detalles del
+              <label for="message" class="text-[10px] uppercase tracking-[0.2em] text-luminar-text/50">Detalles del
                 Proyecto</label>
               <textarea id="message" rows="4"
-                class="bg-luminar-bg border-b border-luminar-text/20 focus:border-luminar-accent text-luminar-text p-4 outline-none transition-colors resize-none"
-                placeholder="Describa brevemente los requerimientos de su espacio..."></textarea>
+                class="bg-luminar-bg border border-luminar-text/20 focus:border-luminar-accent text-luminar-text p-3 outline-none transition-colors resize-none rounded-brand"
+                placeholder="Describa brevemente los requerimientos de su espacio."></textarea>
             </div>
             <button type="submit"
-              class="bg-luminar-text text-luminar-bg font-jost font-medium uppercase tracking-widest py-4 px-8 mt-4 hover:bg-luminar-accent transition-colors">
+              class="border border-luminar-accent bg-luminar-bg text-luminar-accent font-secondary font-medium uppercase tracking-widest py-4 px-8 mt-4 hover:bg-luminar-accent hover:text-luminar-bg transition-colors rounded-brand">
               Solicitar Presupuesto
             </button>
           </form>
@@ -385,7 +407,7 @@
   <!-- Footer -->
   <footer class="border-t border-luminar-text/10 py-12 bg-luminar-bg">
     <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
-      <span class="font-cinzel text-2xl tracking-widest text-luminar-text">LUMINAR</span>
+      <span class="font-primary text-2xl tracking-widest text-luminar-text">LUMINAR</span>
       <p class="text-luminar-text text-sm">© 2026 Luminar Cerramientos. Todos los derechos reservados.</p>
       <div class="flex gap-8">
         <a href="#" class="text-luminar-text hover:text-luminar-accent transition-colors"><i

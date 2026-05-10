@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Jost:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -10,12 +10,13 @@
   --color-luminar-text: #FEF9EC;
 
   /* Typography */
-  --font-cinzel: "Cinzel", serif;
-  --font-jost: "Jost", sans-serif;
+  --font-primary: "Marcellus", serif;
+  --font-secondary: "Jost", sans-serif;
 
   /* Elevation & Glow */
   --border-elevation: 1px solid rgba(254, 249, 236, 0.1);
   --shadow-glow: 0 0 40px rgba(51, 51, 51, 0.5);
+  --radius-brand: 4px;
 
   /* Spacing - Following 8px grid multiples in Tailwind scale
      Note: Tailwind v4 uses --spacing for the base unit (default 4px).
@@ -25,7 +26,7 @@
 
 @layer base {
   body {
-    @apply bg-luminar-bg text-luminar-text font-jost antialiased selection:bg-luminar-accent selection:text-luminar-bg;
+    @apply bg-luminar-bg text-luminar-text font-secondary antialiased selection:bg-luminar-accent selection:text-luminar-bg;
     margin: 0;
     overflow-x: hidden;
   }
@@ -36,7 +37,7 @@
   h4,
   h5,
   h6 {
-    @apply font-cinzel;
+    @apply font-primary;
     letter-spacing: 0;
   }
 }
@@ -44,9 +45,38 @@
 @layer components {
   .elevation-border {
     border: var(--border-elevation);
+    border-radius: var(--radius-brand);
   }
 
   .luminar-glow {
     box-shadow: var(--shadow-glow);
+  }
+
+  .rounded-brand {
+    border-radius: var(--radius-brand);
+  }
+
+  /* Hamburger to X animation */
+  #menu-toggle-btn.is-active span:nth-child(1) {
+    transform: translateY(3.75px) rotate(45deg);
+  }
+  #menu-toggle-btn.is-active span:nth-child(2) {
+    transform: translateY(-3.75px) rotate(-45deg);
+  }
+
+  /* Active Nav Link Indicator */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link.nav-link-active::after {
+    width: 100%;
   }
 }

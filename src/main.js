@@ -32,8 +32,7 @@ if (nav) {
 
 // ─── Mobile Fullscreen Menu ───────────────────────────────────────────────────
 const mobileMenu    = document.getElementById('mobile-menu');
-const openBtn       = document.getElementById('menu-open-btn');
-const closeBtn      = document.getElementById('menu-close-btn');
+const toggleBtn     = document.getElementById('menu-toggle-btn');
 const mobileLinks   = gsap.utils.toArray('#mobile-menu .mobile-nav-link');
 
 // Build a reusable timeline (paused initially)
@@ -42,7 +41,7 @@ const menuTl = gsap.timeline({ paused: true })
     opacity: 1,
     duration: 0.35,
     ease: 'power2.out',
-    pointerEvents: 'all',
+    pointerEvents: 'auto',
     onStart: () => {
       mobileMenu.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden'; // lock page scroll
@@ -56,21 +55,30 @@ const menuTl = gsap.timeline({ paused: true })
     ease: 'power3.out'
   }, '-=0.1');
 
-function openMenu() { menuTl.play(); }
-
-function closeMenu() {
-  menuTl.reverse().then(() => {
-    mobileMenu.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = ''; // unlock page scroll
-    gsap.set(mobileMenu, { pointerEvents: 'none' });
-  });
+function toggleMenu() {
+  if (toggleBtn.classList.contains('is-active')) {
+    // Close menu
+    toggleBtn.classList.remove('is-active');
+    menuTl.reverse().then(() => {
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // unlock page scroll
+      gsap.set(mobileMenu, { pointerEvents: 'none' });
+    });
+  } else {
+    // Open menu
+    toggleBtn.classList.add('is-active');
+    menuTl.play();
+  }
 }
 
-if (openBtn)  openBtn.addEventListener('click', openMenu);
-if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+if (toggleBtn) toggleBtn.addEventListener('click', toggleMenu);
 
 // Close when any link is tapped
-mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+mobileLinks.forEach(link => link.addEventListener('click', () => {
+  if (toggleBtn.classList.contains('is-active')) {
+    toggleMenu();
+  }
+}));
 
 // ─── Servicios B — Sticky Scroll Pin ─────────────────────────────────────────
 const pinWrapper  = document.getElementById('services-pin-wrapper');
@@ -84,9 +92,10 @@ function showSlide(index) {
   // Fade in the active image, fade out the rest
   images.forEach((img, i) => {
     gsap.to(img, {
-      opacity: i === index ? 1 : 0,
-      duration: 0.8,
-      ease: 'power2.inOut'
+      autoAlpha: i === index ? 1 : 0,
+      duration: i === index ? 0.6 : 0.4,
+      ease: 'power2.inOut',
+      overwrite: true
     });
   });
 
@@ -94,11 +103,11 @@ function showSlide(index) {
   panels.forEach((panel, i) => {
     if (i === index) {
       gsap.fromTo(panel,
-        { opacity: 0, y: 32 },
-        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }
+        { autoAlpha: 0, y: 32 },
+        { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out', overwrite: true }
       );
     } else {
-      gsap.to(panel, { opacity: 0, y: -16, duration: 0.5, ease: 'power2.in' });
+      gsap.to(panel, { autoAlpha: 0, y: -24, duration: 0.3, ease: 'power2.in', overwrite: true });
     }
   });
 
@@ -137,3 +146,38 @@ if (pinWrapper && images.length && panels.length) {
     }
   });
 }
+
+// ─── ScrollSpy — Active Nav Link Indicator ──────────────────────────────────
+const navLinks = gsap.utils.toArray('.nav-link');
+const sections = ['servicios-a', 'nosotros', 'proyectos', 'contacto'];
+
+sections.forEach(id => {
+  const section = document.getElementById(id);
+  if (section) {
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top 40%',
+      end: 'bottom 40%',
+      onToggle: self => {
+        if (self.isActive) {
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('nav-link-active');
+            } else {
+              link.classList.remove('nav-link-active');
+            }
+          });
+        }
+      }
+    });
+  }
+});
+
+// Clear active links when at the very top (Hero)
+ScrollTrigger.create({
+  trigger: 'header',
+  start: 'top top',
+  end: 'bottom 40%',
+  onEnter: () => navLinks.forEach(l => l.classList.remove('nav-link-active')),
+  onEnterBack: () => navLinks.forEach(l => l.classList.remove('nav-link-active'))
+});
