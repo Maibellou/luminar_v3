@@ -372,32 +372,40 @@
         </div>
 
         <div class="bg-luminar-card p-12 elevation-border">
-          <form class="flex flex-col gap-6">
+          <form id="contact-form" class="flex flex-col gap-6">
             <div class="flex flex-col gap-2">
               <label for="name" class="text-[10px] uppercase tracking-[0.2em] text-luminar-text/50">Nombre
                 Completo</label>
               <input type="text" id="name"
                 class="bg-luminar-bg border border-luminar-text/20 focus:border-luminar-accent text-luminar-text p-3 outline-none transition-colors rounded-brand"
-                placeholder="Su nombre completo">
+                placeholder="Su nombre completo" required>
             </div>
             <div class="flex flex-col gap-2">
               <label for="email" class="text-[10px] uppercase tracking-[0.2em] text-luminar-text/50">Correo
                 Electrónico</label>
               <input type="email" id="email"
                 class="bg-luminar-bg border border-luminar-text/20 focus:border-luminar-accent text-luminar-text p-3 outline-none transition-colors rounded-brand"
-                placeholder="su@email.com">
+                placeholder="su@email.com" required>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="phone" class="text-[10px] uppercase tracking-[0.2em] text-luminar-text/50">Teléfono (Opcional)</label>
+              <input type="tel" id="phone"
+                class="bg-luminar-bg border border-luminar-text/20 focus:border-luminar-accent text-luminar-text p-3 outline-none transition-colors rounded-brand"
+                placeholder="+54 9 11 ...">
             </div>
             <div class="flex flex-col gap-2">
               <label for="message" class="text-[10px] uppercase tracking-[0.2em] text-luminar-text/50">Detalles del
                 Proyecto</label>
               <textarea id="message" rows="4"
                 class="bg-luminar-bg border border-luminar-text/20 focus:border-luminar-accent text-luminar-text p-3 outline-none transition-colors resize-none rounded-brand"
-                placeholder="Describa brevemente los requerimientos de su espacio."></textarea>
+                placeholder="Describa brevemente los requerimientos de su espacio." required></textarea>
             </div>
-            <button type="submit"
-              class="border border-luminar-accent bg-luminar-bg text-luminar-accent font-secondary font-medium uppercase tracking-widest py-4 px-8 mt-4 hover:bg-luminar-accent hover:text-luminar-bg transition-colors rounded-brand">
-              Solicitar Presupuesto
+            <button type="submit" id="submit-btn"
+              class="relative flex justify-center items-center border border-luminar-accent bg-luminar-bg text-luminar-accent font-secondary font-medium uppercase tracking-widest py-4 px-8 mt-4 hover:bg-luminar-accent hover:text-luminar-bg transition-colors rounded-brand disabled:opacity-50 disabled:cursor-not-allowed">
+              <span id="submit-text">Solicitar Presupuesto</span>
+              <i id="submit-spinner" class="ph-thin ph-spinner-gap text-2xl animate-spin absolute hidden"></i>
             </button>
+            <div id="form-status" class="hidden text-sm text-center mt-2 font-secondary rounded p-3"></div>
           </form>
         </div>
       </div>

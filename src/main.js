@@ -181,3 +181,66 @@ ScrollTrigger.create({
   onEnter: () => navLinks.forEach(l => l.classList.remove('nav-link-active')),
   onEnterBack: () => navLinks.forEach(l => l.classList.remove('nav-link-active'))
 });
+
+// ─── Contact Form Handler ────────────────────────────────────────────────────
+const contactForm = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
+const submitText = document.getElementById('submit-text');
+const submitSpinner = document.getElementById('submit-spinner');
+const formStatus = document.getElementById('form-status');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Reset status
+    formStatus.className = 'hidden text-sm text-center mt-2 font-secondary rounded p-3';
+    formStatus.textContent = '';
+
+    // Show loading state
+    submitBtn.disabled = true;
+    submitText.classList.add('opacity-0');
+    submitSpinner.classList.remove('hidden');
+
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      message: document.getElementById('message').value,
+    };
+
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Success
+        formStatus.textContent = 'Mensaje enviado correctamente. Nos pondremos en contacto a la brevedad.';
+        formStatus.classList.remove('hidden');
+        formStatus.classList.add('bg-green-500/20', 'text-green-400', 'border', 'border-green-500/30');
+        contactForm.reset();
+      } else {
+        // Error from API
+        throw new Error(result.error || result.message || 'Error al enviar el mensaje');
+      }
+    } catch (error) {
+      // Network or API Error
+      console.error('Submit error:', error);
+      formStatus.textContent = 'Hubo un error al enviar el mensaje. Por favor, intente nuevamente.';
+      formStatus.classList.remove('hidden');
+      formStatus.classList.add('bg-red-500/20', 'text-red-400', 'border', 'border-red-500/30');
+    } finally {
+      // Restore button state
+      submitBtn.disabled = false;
+      submitText.classList.remove('opacity-0');
+      submitSpinner.classList.add('hidden');
+    }
+  });
+}
